@@ -5,5 +5,4 @@
 
 vim.api.nvim_set_keymap("n", "-", ":Oil<CR>", { noremap = true, silent = true })
 
--- Selecionar todo el texto
 vim.api.nvim_set_keymap("n", "<C-a>", "gg^VG", { noremap = true, silent = true })
