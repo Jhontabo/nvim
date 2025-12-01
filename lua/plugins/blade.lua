@@ -1,4 +1,10 @@
 return {
+
+  {
+    "jwalton512/vim-blade",
+    ft = "blade",
+  },
+
   "ricardoramirezr/blade-nav.nvim",
   -- Opcional: si usas nvim-cmp para autocompletado, añade la dependencia.
   -- Si no lo usas, puedes quitar la línea 'dependencies'.
