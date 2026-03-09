@@ -6,3 +6,7 @@
 for i = 1, 5 do
   vim.keymap.set("n", "<leader>" .. i, "<cmd>BufferLineGoToBuffer " .. i .. "<cr>", { desc = "Go to Buffer " .. i })
 end
+
+-- Split window to the right with <leader>+
+pcall(vim.keymap.del, "n", "<leader>|")
+vim.keymap.set("n", "<leader>+", "<C-W>v", { desc = "Split Window Right", remap = true })
