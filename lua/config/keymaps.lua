@@ -10,3 +10,6 @@ end
 -- Split window to the right with <leader>+
 pcall(vim.keymap.del, "n", "<leader>|")
 vim.keymap.set("n", "<leader>+", "<C-W>v", { desc = "Split Window Right", remap = true })
+
+-- Select entire file with Ctrl+A
+vim.keymap.set("n", "<C-a>", "ggVG", { desc = "Select All" })
