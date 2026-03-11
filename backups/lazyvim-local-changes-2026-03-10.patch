@@ -1,0 +1,87 @@
+diff --git a/lua/lazyvim/plugins/extras/editor/dial.lua b/lua/lazyvim/plugins/extras/editor/dial.lua
+index 3d9a18bf..7a9a76ae 100644
+--- a/lua/lazyvim/plugins/extras/editor/dial.lua
++++ b/lua/lazyvim/plugins/extras/editor/dial.lua
+@@ -53,6 +53,20 @@ return {
+       cyclic = true,
+     })
+ 
++    local weekdays = augend.constant.new({
++      elements = {
++        "Monday",
++        "Tuesday",
++        "Wednesday",
++        "Thursday",
++        "Friday",
++        "Saturday",
++        "Sunday",
++      },
++      word = true,
++      cyclic = true,
++    })
++
+     local months = augend.constant.new({
+       elements = {
+         "January",
+@@ -72,6 +86,15 @@ return {
+       cyclic = true,
+     })
+ 
++    local capitalized_boolean = augend.constant.new({
++      elements = {
++        "True",
++        "False",
++      },
++      word = true,
++      cyclic = true,
++    })
++
+     return {
+       dials_by_ft = {
+         css = "css",
+@@ -93,12 +116,11 @@ return {
+           augend.integer.alias.decimal_int, -- nonnegative and negative decimal number
+           augend.integer.alias.hex, -- nonnegative hex number  (0x01, 0x1a1f, etc.)
+           augend.date.alias["%Y/%m/%d"], -- date (2022/02/19, etc.)
+-          augend.constant.alias.en_weekday, -- Mon, Tue, ..., Sat, Sun
+-          augend.constant.alias.en_weekday_full, -- Monday, Tuesday, ..., Saturday, Sunday
+           ordinal_numbers,
++          weekdays,
+           months,
++          capitalized_boolean,
+           augend.constant.alias.bool, -- boolean value (true <-> false)
+-          augend.constant.alias.Bool, -- boolean value (True <-> False)
+           logical_alias,
+         },
+         vue = {
+diff --git a/lua/lazyvim/plugins/lsp/init.lua b/lua/lazyvim/plugins/lsp/init.lua
+index 1a3708e1..540b6c5c 100644
+--- a/lua/lazyvim/plugins/lsp/init.lua
++++ b/lua/lazyvim/plugins/lsp/init.lua
+@@ -2,7 +2,7 @@ return {
+   -- lspconfig
+   {
+     "neovim/nvim-lspconfig",
+-    event = { "BufReadPre", "BufNewFile" },
++    event = "LazyFile",
+     dependencies = {
+       "mason.nvim",
+       { "mason-org/mason-lspconfig.nvim", config = function() end },
+@@ -150,7 +150,7 @@ return {
+       return ret
+     end,
+     ---@param opts PluginLspOpts
+-    config = function(_, opts)
++    config = vim.schedule_wrap(function(_, opts)
+       -- setup autoformat
+       LazyVim.format.register(LazyVim.lsp.formatter())
+ 
+@@ -259,7 +259,7 @@ return {
+           automatic_enable = { exclude = mason_exclude },
+         })
+       end
+-    end,
++    end),
+   },
+ 
+   -- cmdline tools and lsp servers
