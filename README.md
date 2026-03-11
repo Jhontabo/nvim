@@ -7,8 +7,8 @@ Refer to the [documentation](https://lazyvim.github.io/installation) to get star
 
 <!-- Add your screenshots below -->
 
-<!-- ![Screenshot 1](./screenshots/screenshot1.png) -->
-<!-- ![Screenshot 2](./screenshots/screenshot2.png) -->
+<!-- ![Screen 1](./screenshots/screen1.png) -->
+<!-- ![Screen 2](./screenshots/screen2.png) -->
 
 ## Plugins
 
