@@ -14,9 +14,7 @@ vim.keymap.set("n", "<leader>+", "<C-W>v", { desc = "Split Window Right", remap 
 -- Select entire file with Ctrl+A
 vim.keymap.set("n", "<C-a>", "ggVG", { desc = "Select All" })
 
--- Open terminal with <leader>t (Space + t)
-vim.keymap.set("n", "<leader>t", function()
-  vim.cmd("botright split")
-  vim.cmd("terminal")
-  vim.cmd("startinsert")
-end, { desc = "Open Terminal" })
+-- Terminal toggle like LazyVim default, but on Ctrl+t
+vim.keymap.set({ "n", "t" }, "<C-t>", function()
+  Snacks.terminal(nil, { cwd = LazyVim.root() })
+end, { desc = "Terminal (Root Dir)" })
