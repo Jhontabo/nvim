@@ -19,3 +19,8 @@ vim.filetype.add({
 })
 
 pcall(vim.treesitter.language.register, "php", "blade")
+
+vim.opt.wrap = true
+vim.opt.linebreak = true
+vim.opt.breakindent = true
+vim.opt.showbreak = "↪ "
