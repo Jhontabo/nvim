@@ -7,9 +7,9 @@ return {
 
     vim.o.autoread = true
 
-    vim.keymap.set({ "n", "x" }, "<C-o>", function() require("opencode").ask("@this: ", { submit = true }) end, { desc = "Ask opencode…" })
+    vim.keymap.set({ "n", "x" }, "<Space>oo", function() require("opencode").ask("@this: ", { submit = true }) end, { desc = "Ask opencode…" })
     vim.keymap.set({ "n", "x" }, "<Space>aa", function() require("opencode").select() end, { desc = "Opencode actions…" })
-    vim.keymap.set({ "n", "t" }, "<Space>..", function() require("opencode").toggle() end, { desc = "Toggle opencode" })
+    vim.keymap.set({ "n", "t" }, "<Space>mm", function() require("opencode").toggle() end, { desc = "Toggle opencode" })
 
     vim.keymap.set({ "n", "x" }, "go", function() return require("opencode").operator("@this ") end, { desc = "Add range to opencode", expr = true })
     vim.keymap.set("n", "goo", function() return require("opencode").operator("@this ") .. "_" end, { desc = "Add line to opencode", expr = true })
