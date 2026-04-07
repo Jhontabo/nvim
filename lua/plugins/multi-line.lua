@@ -6,5 +6,9 @@ return {
     -- URL: https://github.com/terryma/vim-multiple-cursors
     -- Description: A Vim plugin that allows multiple cursors for simultaneous editing.
     "terryma/vim-multiple-cursors",
+    keys = {
+      { "<C-n>", mode = { "n", "x" } },
+      { "g<C-n>", mode = { "n", "x" } },
+    },
   },
 }

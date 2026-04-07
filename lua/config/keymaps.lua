@@ -11,8 +11,9 @@ end
 pcall(vim.keymap.del, "n", "<leader>|")
 vim.keymap.set("n", "<leader>+", "<C-W>v", { desc = "Split Window Right", remap = true })
 
--- Select entire file with Ctrl+A
-vim.keymap.set("n", "<C-a>", "ggVG", { desc = "Select All" })
+-- Select entire file with Ctrl+A in normal, visual, and insert mode
+vim.keymap.set({ "n", "x" }, "<C-a>", "ggVG", { desc = "Select All" })
+vim.keymap.set("i", "<C-a>", "<Esc>ggVG", { desc = "Select All" })
 
 -- Terminal toggle like LazyVim default, but on Ctrl+t
 vim.keymap.set({ "n", "t" }, "<C-t>", function()
