@@ -1,5 +1,6 @@
 return {
   "nickjvandyke/opencode.nvim",
+  lazy = false,
   version = "*",
   config = function()
     vim.g.opencode_opts = {}
