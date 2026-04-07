@@ -5,3 +5,17 @@
 if vim.fn.executable("/usr/bin/zsh") == 1 then
   vim.opt.shell = "/usr/bin/zsh"
 end
+
+vim.g.lazyvim_python_lsp = "pyright"
+vim.g.lazyvim_python_ruff = "ruff"
+vim.g.lazyvim_php_lsp = "intelephense"
+vim.g.lazyvim_ts_lsp = "tsgo"
+vim.g.lazyvim_eslint_auto_format = false
+
+vim.filetype.add({
+  pattern = {
+    [".*%.blade%.php"] = "blade",
+  },
+})
+
+pcall(vim.treesitter.language.register, "php", "blade")
