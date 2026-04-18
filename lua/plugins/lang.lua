@@ -9,6 +9,9 @@ return {
         "eslint-lsp",
         "intelephense",
         "js-debug-adapter",
+        "jdtls",
+        "java-debug-adapter",
+        "java-test",
         "kotlin-language-server",
         "ktlint",
         "php-debug-adapter",
@@ -92,6 +95,27 @@ return {
           compiler = {
             jvm = {
               target = "17",
+            },
+          },
+        },
+      })
+
+      opts.servers.jdtls = vim.tbl_deep_extend("force", opts.servers.jdtls or {}, {
+        enabled = true,
+        filetypes = { "java" },
+        settings = {
+          java = {
+            eclipse = {
+              downloadSources = true,
+            },
+            configuration = {
+              updateBuildConfiguration = "interactive",
+            },
+            contentProvider = "referenced",
+            inlayHints = {
+              parameterNames = {
+                enabled = "all",
+              },
             },
           },
         },
