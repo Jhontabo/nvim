@@ -14,3 +14,8 @@ vim.keymap.set("i", "<C-a>", "<Esc>ggVG", { desc = "Select All" })
 vim.keymap.set({ "n", "t" }, "<C-t>", function()
   Snacks.terminal(nil, { cwd = LazyVim.root() })
 end, { desc = "Terminal (Root Dir)" })
+
+-- Open Yazi file manager with -
+vim.keymap.set("n", "-", function()
+  Snacks.terminal("yazi", { cwd = LazyVim.root() })
+end, { desc = "Open Yazi" })
