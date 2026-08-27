@@ -6,6 +6,8 @@ return {
     "stevearc/dressing.nvim",
   },
   config = function()
-    require("flutter-tools").setup({})
+    require("flutter-tools").setup({
+      flutter_path = vim.fn.expand("~/flutter/bin/flutter"),
+    })
   end,
 }
